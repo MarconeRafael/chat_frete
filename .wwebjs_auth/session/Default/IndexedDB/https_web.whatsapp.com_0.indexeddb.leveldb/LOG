@@ -1,13 +1,13 @@
-2025/03/25-00:24:40.836 cafa Reusing MANIFEST /home/m/esse/chat_frete/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2025/03/25-00:24:40.836 cafa Recovering log #154
-2025/03/25-00:24:40.851 cafa Reusing old log /home/m/esse/chat_frete/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000154.log 
-2025/03/25-00:24:42.757 cb0c Level-0 table #159: started
-2025/03/25-00:24:42.763 cb0c Level-0 table #159: 294077 bytes OK
-2025/03/25-00:24:42.765 cb0c Delete type=0 #154
-2025/03/25-00:24:42.766 cb0c Manual compaction at level-0 from '\x00;\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00<\x00\x00\x00' @ 0 : 0; will stop at (end)
-2025/03/25-00:24:44.457 cafb Compacting 1@1 + 1@2 files
-2025/03/25-00:24:44.499 cafb Generated table #160@1: 34737 keys, 1266648 bytes
-2025/03/25-00:24:44.499 cafb Compacted 1@1 + 1@2 files => 1266648 bytes
-2025/03/25-00:24:44.511 cafb compacted to: files[ 0 0 1 0 0 0 0 ]
-2025/03/25-00:24:44.511 cafb Delete type=2 #156
-2025/03/25-00:24:44.511 cafb Delete type=2 #159
+2025/03/25-00:28:31.640 d343 Reusing MANIFEST /home/m/esse/chat_frete/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/03/25-00:28:31.641 d343 Recovering log #158
+2025/03/25-00:28:31.662 d343 Reusing old log /home/m/esse/chat_frete/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000158.log 
+2025/03/25-00:28:33.325 d37a Level-0 table #163: started
+2025/03/25-00:28:33.332 d37a Level-0 table #163: 381456 bytes OK
+2025/03/25-00:28:33.334 d37a Delete type=0 #158
+2025/03/25-00:28:33.334 d37a Manual compaction at level-0 from '\x00<\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00=\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/03/25-00:28:35.023 d34f Compacting 1@1 + 1@2 files
+2025/03/25-00:28:35.067 d34f Generated table #164@1: 36227 keys, 1316199 bytes
+2025/03/25-00:28:35.067 d34f Compacted 1@1 + 1@2 files => 1316199 bytes
+2025/03/25-00:28:35.076 d34f compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/03/25-00:28:35.076 d34f Delete type=2 #163
+2025/03/25-00:28:35.076 d34f Delete type=2 #160

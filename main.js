@@ -57,6 +57,7 @@ async function transcreverAudio(audioFilePath) {
     const response = await openai.audio.transcriptions.create({
       file: fs.createReadStream(wavFilePath),
       model: 'whisper-1',
+      language: 'pt'  // Definindo idioma como português (Brasil)
     });
 
     // Log da resposta
