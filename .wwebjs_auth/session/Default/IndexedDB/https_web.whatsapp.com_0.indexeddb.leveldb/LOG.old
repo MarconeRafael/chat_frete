@@ -1,0 +1,13 @@
+2025/03/25-00:21:40.704 c5f8 Reusing MANIFEST /home/m/esse/chat_frete/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/03/25-00:21:40.705 c5f8 Recovering log #150
+2025/03/25-00:21:40.710 c5f8 Reusing old log /home/m/esse/chat_frete/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000150.log 
+2025/03/25-00:21:42.480 c638 Level-0 table #155: started
+2025/03/25-00:21:42.483 c638 Level-0 table #155: 115080 bytes OK
+2025/03/25-00:21:42.485 c638 Delete type=0 #150
+2025/03/25-00:21:42.485 c638 Manual compaction at level-0 from '\x00:\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00;\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/03/25-00:21:44.160 c5f2 Compacting 1@1 + 1@2 files
+2025/03/25-00:21:44.198 c5f2 Generated table #156@1: 33590 keys, 1236028 bytes
+2025/03/25-00:21:44.198 c5f2 Compacted 1@1 + 1@2 files => 1236028 bytes
+2025/03/25-00:21:44.208 c5f2 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/03/25-00:21:44.208 c5f2 Delete type=2 #152
+2025/03/25-00:21:44.209 c5f2 Delete type=2 #155
