@@ -15,7 +15,10 @@ let client;
 // Função para enviar mensagens
 function sendMessage(to, message) {
   client.sendMessage(to, message)
-    .then(response => console.log('Mensagem enviada com sucesso'))
+    .then(response => {
+      console.log('Mensagem enviada com sucesso');
+      console.log(`Mensagem enviada para ${to}: ${message}`);  // Imprime a mensagem enviada no terminal
+    })
     .catch(err => console.error('Erro ao enviar mensagem:', err));
 }
 

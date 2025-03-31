@@ -59,8 +59,7 @@ function initializeClient(onMessageCallback) {
  * @param {Object} message - Objeto da mensagem recebida.
  */
 function onMessageReceived(message) {
-  console.log('Mensagem recebida de:', message.from);
-  console.log('Conteúdo:', message.body);
+
 
   // Verifica se o callback foi definido e encaminha a mensagem para ele
   if (typeof messageCallback === 'function') {

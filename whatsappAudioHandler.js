@@ -9,6 +9,31 @@ const openai = new OpenAI({
   apiKey: config.openaiApiKey,
 });
 
+// Função para corrigir possíveis erros de transcrição
+function corrigirTranscricao(texto) {
+  // Dicionário de substituição: chave é o termo incorreto (em minúsculas) e valor é o termo correto
+  const correcoes = {
+    'frets': 'frete',
+    'fret': 'frete',
+    'friends': 'fretes',
+    'fred': 'fretes',
+    // Adicione outros termos conforme necessário
+  };
+
+  // Separa o texto em palavras e faz a substituição
+  let palavras = texto.split(' ');
+  palavras = palavras.map(palavra => {
+    // Remove pontuações para comparar apenas a palavra
+    const palavraLimpa = palavra.replace(/[^a-zA-Z]/g, '').toLowerCase();
+    if (correcoes[palavraLimpa]) {
+      // Substitui a parte encontrada preservando pontuações se houver
+      return palavra.replace(new RegExp(palavraLimpa, 'i'), correcoes[palavraLimpa]);
+    }
+    return palavra;
+  });
+  return palavras.join(' ');
+}
+
 async function transcreverAudio(audioFilePath) {
   try {
     console.log(`Iniciando transcrição do áudio em: ${audioFilePath}`);
@@ -43,14 +68,20 @@ async function transcreverAudio(audioFilePath) {
     }
 
     // Envia o arquivo para a API de transcrição da OpenAI
+    console.log('Enviando áudio para transcrição...');
     const response = await openai.audio.transcriptions.create({
       file: fs.createReadStream(wavFilePath),
       model: 'whisper-1',
+      language: 'pt'  // Define o idioma para português
+      // Se a API aceitar prompt, pode incluir um para contextualizar a conversa, por exemplo:
+      // prompt: 'O áudio contém uma conversa sobre negociações de frete. Preste atenção em termos como "frete", "tamanho do caminhão", "aceita" ou "recusa".'
     });
 
     if (response && response.text) {
       console.log('Áudio transcrito com sucesso!');
-      return response.text;
+      let textoCorrigido = corrigirTranscricao(response.text);
+      console.log('Texto corrigido:', textoCorrigido);
+      return textoCorrigido;
     } else {
       console.error('Erro na transcrição do áudio: resposta inválida.');
       return null;
@@ -67,9 +98,9 @@ async function processMessage(message) {
   console.log('Tipo de mensagem:', message.type);
 
   try {
-    // Verifica se a mensagem é de áudio
-    if (message.type === 'audio') {
-      console.log(`Mensagem de áudio recebida de ${message.from}`);
+    // Verifica se a mensagem é de áudio ou PTT
+    if (message.type === 'audio' || message.type === 'ptt') {
+      console.log(`Mensagem de áudio/ptt recebida de ${message.from}`);
       console.log('Detalhes do áudio:', message.audioUrl);
 
       // Gerar nome único para o arquivo de áudio
@@ -116,8 +147,7 @@ function sendMessage(to, text) {
   client.sendMessage(to, text);
 }
 
-// Inicialização do cliente WhatsApp e recebimento de mensagens
+// Inicializa o cliente do WhatsApp e recebimento de mensagens
 let client;
 client = whatsappClient.initializeClient(processMessage);
-
 console.log("Sistema de negociação de frete iniciado...");
